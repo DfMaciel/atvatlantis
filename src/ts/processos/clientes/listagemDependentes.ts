@@ -3,9 +3,9 @@ import Armazem from "../../dominio/armazem";
 import ImpressaorCliente from "../../impressores/impressorCliente";
 import Impressor from "../../interfaces/impressor";
 import Cliente from "../../modelos/cliente";
-import VerificaTitular from "../../verificadores/verificaTitular";
+import VerificaDependente from "../../verificadores/verificaDependente";
 
-export default class ListagemTitulares extends Processo {
+export default class ListagemDependentes extends Processo {
     private clientes: Cliente[]
     private impressor!: Impressor
     
@@ -15,11 +15,11 @@ export default class ListagemTitulares extends Processo {
     }
     processar(): void {
         console.clear()
-        console.log('Iniciando a listagem dos clientes titulares...')
+        console.log('Iniciando a listagem dos clientes dependentes...')
         this.clientes.forEach(cliente => {
-            let verificador = new VerificaTitular(cliente)
-            if (verificador.verificar()) {
-                this.impressor = new ImpressaorCliente(cliente, false)
+            let verificador = new VerificaDependente(cliente)
+            if (verificador.verificar() || cliente.Titular === null) {
+                this.impressor = new ImpressaorCliente(cliente, true)
                 console.log(this.impressor.imprimir())
             }
         })

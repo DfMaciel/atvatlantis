@@ -22,13 +22,7 @@ export default class ListagemDependentesEspecificos extends Processo {
             return
         }
         console.log('Listagem de dependentes de um titular especifico...')
-        let impressor = new ImpressorDependentes(this.cliente.Dependentes)
+        let impressor = new ImpressorDependentes(this.cliente.Dependentes, false)
         console.log(impressor.imprimir())
-        // this.cliente.Dependentes.forEach(dependente => {
-        //     if (this.dependente(dependente)) {
-        //         let impressor = new ImpressaorCliente(dependente)
-        //         console.log(impressor.imprimir())
-        //     }
-        // })
     }
 }

@@ -1,4 +1,3 @@
-import Processo from "../abstracoes/processo";
 import Cliente from "../modelos/cliente";
 import Impressor from "../interfaces/impressor";
 import ImpressaorCliente from "./impressorCliente";
@@ -6,20 +5,17 @@ import ImpressaorCliente from "./impressorCliente";
 export default class ImpressorDependentes implements Impressor {
     private dependentes: Cliente[]
     private impressor!: Impressor
+    private impressaoSozinha: boolean
 
-    constructor(dependentes: Cliente[]) {
+    constructor(dependentes: Cliente[], impressaoSozinha: boolean) {
         this.dependentes = dependentes
+        this.impressaoSozinha = impressaoSozinha
     }
 
     imprimir(): string {
         let impressao = ''
-        impressao = impressao + `Dependentes:\n`
-        // this.cliente.Dependentes.forEach(dependente => {
-        //     let impressor = new ImpressaorCliente(dependente)
-        //     console.log(impressor.imprimir())
-        // });
         for (let index = 0; index < this.dependentes.length; index++) {
-            this.impressor = new ImpressaorCliente(this.dependentes[index])
+            this.impressor = new ImpressaorCliente(this.dependentes[index], this.impressaoSozinha)
             if (index == 0) {
                 impressao = impressao + `${this.impressor.imprimir()}`
             } else {

@@ -1,14 +1,18 @@
 import Processo from "../../abstracoes/processo";
-import MenuTipoListagemClientes from "../../menus/menuTipoListagemClientes";
-import ListagemDependentes from "./listagemDependentes";
+import MenuTipoExclusaoCliente from "../../menus/menuTipoExclusaoCliente";
+import ExcluirClienteTitular from "./excluirClienteTitular";
 import ListagemDependentesEspecificos from "./listagemDependentesEspecificos";
 import ListagemTitulares from "./listagemTitulares";
 import ListagemTitularEspecifico from "./listagemTitularEspecifico";
+import Cliente from "../../modelos/cliente";
+import Armazem from "../../dominio/armazem";
 
-export default class TipoListagemClientes extends Processo {
+export default class TipoExclusaoCliente extends Processo {
+    private clientes: Cliente[]
     constructor(){
         super()
-        this.menu = new MenuTipoListagemClientes()
+        this.menu = new MenuTipoExclusaoCliente()
+        this.clientes = Armazem.InstanciaUnica.Clientes
     }
     
     processar(): void {
@@ -16,7 +20,7 @@ export default class TipoListagemClientes extends Processo {
         this.opcao = this.entrada.receberNumero('Qual a opção desejada?')
         switch (this.opcao) {
             case 1:
-                this.processo = new ListagemTitulares()
+                this.processo = new ExcluirClienteTitular(this.clientes)
                 this.processo.processar()
                 break;
             case 2:
@@ -24,14 +28,6 @@ export default class TipoListagemClientes extends Processo {
                 this.processo =  new ListagemDependentesEspecificos(documentoTitular)
                 this.processo.processar()
                 break;
-            case 3:
-                let documentoDependente = this.entrada.receberTexto('Qual o documento do dependente?')
-                this.processo = new ListagemTitularEspecifico(documentoDependente)
-                this.processo.processar()
-                break;
-            case 4:
-                this.processo = new ListagemDependentes()
-                this.processo.processar()
             default:
                 console.log('Opção não entendida... :(')
         }

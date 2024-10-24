@@ -1,7 +1,7 @@
 import Processo from "../../abstracoes/processo";
 import MenuTipoDocumento from "../../menus/menuTipoDocumento";
 import Cliente from "../../modelos/cliente";
-import CadastroRg from "./cadastroRg";
+import CadastroRg from "./cadastroRg"
 import CadastroCpf from "./cadastroCpf";
 import CadastroPassaporte from "./cadastroPassaporte";
 
