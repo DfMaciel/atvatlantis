@@ -36,17 +36,19 @@ export default class ImpressaorCliente implements Impressor {
 
         this.verificador = new VerificaTitular(this.cliente)
 
-        if (!this.verificador.verificar()) {
-            if (this.cliente.Titular == null) {
-                impressao = impressao + `\n| Titular excluído`
-                return impressao
-            } 
-            this.impressor = new ImpressaorCliente(this.cliente.Titular, false)
-            impressao = impressao + `\n| Titular:`
-            impressao = impressao + `\n${this.impressor.imprimir()}`
+        if (!this.cliente.IsTitular) {
+            if (this.isDependente) {
+                if (this.cliente.Titular == null) {
+                    impressao = impressao + `\n| Titular excluído`
+                    return impressao
+                }
+                this.impressor = new ImpressaorCliente(this.cliente.Titular, true);
+                impressao = impressao + `\n| Titular:`;
+                impressao = impressao + `\n${this.impressor.imprimir()}`;
+            }
         }
 
-        if (this.cliente.Dependentes.length > 0) {
+        if (this.cliente.Dependentes.length > 0 && this.cliente.IsTitular) {
             impressao = impressao + `\n| Dependentes:`
             this.impressor = new ImpressorDependentes(this.cliente.Dependentes, false)
             impressao = impressao + `\n${this.impressor.imprimir()}`

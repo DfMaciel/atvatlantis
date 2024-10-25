@@ -17,8 +17,7 @@ export default class ListagemTitulares extends Processo {
         console.clear()
         console.log('Iniciando a listagem dos clientes titulares...')
         this.clientes.forEach(cliente => {
-            let verificador = new VerificaTitular(cliente)
-            if (verificador.verificar()) {
+            if (cliente.IsTitular) {
                 this.impressor = new ImpressaorCliente(cliente, false)
                 console.log(this.impressor.imprimir())
             }
