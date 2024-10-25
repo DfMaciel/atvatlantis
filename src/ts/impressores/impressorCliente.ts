@@ -34,10 +34,10 @@ export default class ImpressaorCliente implements Impressor {
         this.impressor =  new ImpressorTelefones(this.cliente.Telefones)
         impressao = impressao + `\n${this.impressor.imprimir()}`
 
-        this.verificador = new VerificaDependente(this.cliente)
+        this.verificador = new VerificaTitular(this.cliente)
 
-        if (this.isDependente) {
-            if (this.cliente.Titular == false) {
+        if (!this.verificador.verificar()) {
+            if (this.cliente.Titular == null) {
                 impressao = impressao + `\n| Titular excluído`
                 return impressao
             } 

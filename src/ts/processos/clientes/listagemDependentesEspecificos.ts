@@ -24,5 +24,9 @@ export default class ListagemDependentesEspecificos extends Processo {
         console.log('Listagem de dependentes de um titular especifico...')
         let impressor = new ImpressorDependentes(this.cliente.Dependentes, false)
         console.log(impressor.imprimir())
+        let entrada = this.entrada.receberTexto('Pressione qualquer botão para continuar...')
+        if (entrada) {
+            console.clear()
+        }
     }
 }

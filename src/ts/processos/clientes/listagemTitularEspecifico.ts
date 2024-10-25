@@ -18,6 +18,7 @@ export default class ListagemTitularEspecifico extends Processo {
     }
 
     processar(): void {
+        console.clear()
         if (this.cliente === undefined) {
             console.log('Titular não encontrado.')
             return

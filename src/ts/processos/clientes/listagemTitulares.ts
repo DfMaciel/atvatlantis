@@ -23,5 +23,9 @@ export default class ListagemTitulares extends Processo {
                 console.log(this.impressor.imprimir())
             }
         })
+        let entrada = this.entrada.receberTexto('Pressione qualquer botão para continuar...')
+        if (entrada) {
+            console.clear()
+        }
     }
 }

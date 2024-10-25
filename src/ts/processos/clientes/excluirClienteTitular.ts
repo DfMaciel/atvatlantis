@@ -14,7 +14,7 @@ export default class ExcluirClienteTitular extends Processo {
         if (cliente) {
             let indice = this.clientes.indexOf(cliente)
             cliente.Dependentes.forEach(dependente => {
-                dependente.Titular = false
+                dependente.Titular = null
             })
             this.clientes.splice(indice, 1)
             console.log(`Cliente ${cliente.Nome} excluído com sucesso!`)

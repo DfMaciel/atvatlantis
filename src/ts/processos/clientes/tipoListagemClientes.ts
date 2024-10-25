@@ -32,6 +32,7 @@ export default class TipoListagemClientes extends Processo {
             case 4:
                 this.processo = new ListagemDependentes()
                 this.processo.processar()
+                break;
             default:
                 console.log('Opção não entendida... :(')
         }

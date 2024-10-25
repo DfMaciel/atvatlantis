@@ -22,6 +22,8 @@ export default class CadastroClienteTitular extends Processo {
         this.processo = new CadastroTelefonesCliente(cliente)
         this.processo.processar()
 
+        cliente.IsTitular = true
+
         let armazem = Armazem.InstanciaUnica
         armazem.Clientes.push(cliente)
 

@@ -9,7 +9,7 @@ export default class VerificaTitular implements Verificador {
 
     verificar(): boolean {
         let verificacao = false
-        if (this.cliente.Titular == undefined) {
+        if (this.cliente.IsTitular) {
             verificacao = true
         }
         return verificacao

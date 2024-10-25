@@ -9,7 +9,7 @@ export default class VerificaDependente implements Verificador {
 
     verificar(): boolean {
         let verificacao = false
-        if (this.cliente.Titular) {
+        if (this.cliente.Dependentes.length < 1) {
             verificacao = true
         }
         return verificacao

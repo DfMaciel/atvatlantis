@@ -28,6 +28,8 @@ export default class CadastroClienteDependente extends Processo {
         this.processo = new CadastrarDocumentosCliente(dependente)
         this.processo.processar()
 
+        dependente.IsTitular = false
+
         titular.Dependentes.push(dependente)
         armazem.Clientes.push(dependente)
 

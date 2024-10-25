@@ -11,7 +11,8 @@ export default class Cliente {
     private endereco!: Endereco
     private documentos: Documento[] = []
     private dependentes: Cliente[] = []
-    private titular!: Cliente | boolean
+    private titular!: Cliente | null
+    private isTitular: boolean = false
 
     constructor(nome: string, nomeSocial: string, dataNascimento: Date) {
         this.nome = nome
@@ -28,11 +29,13 @@ export default class Cliente {
     public get Endereco() { return this.endereco }
     public get Documentos() { return this.documentos }
     public get Dependentes() { return this.dependentes }
-    public get Titular() { return this.titular ? this.titular : false }
+    public get Titular() { return this.titular ? this.titular : null }
+    public get IsTitular() { return this.isTitular }
 
     public set Endereco(endereco: Endereco) { this.endereco = endereco }
-    public set Titular(titular: Cliente | boolean) { this.titular = titular }
+    public set Titular(titular: Cliente | null) { this.titular = titular }
     public set Telefones(telefones: Telefone[]) { this.telefones = telefones }
     public set Documentos(documentos: Documento[]) { this.documentos = documentos }
     public set Dependentes(dependentes: Cliente[]) { this.dependentes = dependentes }
+    public set IsTitular(isTitular: boolean) { this.isTitular = isTitular }
 }
