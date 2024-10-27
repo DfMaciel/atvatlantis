@@ -9,7 +9,7 @@ export default class ImpressorTelefone implements Impressor {
     }
 
     imprimir(): string {
-        let impressao = `| Telefone: \n(${this.telefone.Ddd}) ${this.telefone.Numero}`
+        let impressao = `| Telefone: \n| (${this.telefone.Ddd}) ${this.telefone.Numero}`
         return impressao
     }
 }

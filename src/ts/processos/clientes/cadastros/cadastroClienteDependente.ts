@@ -1,9 +1,9 @@
-import Processo from "../../abstracoes/processo";
-import Armazem from "../../dominio/armazem";
-import Cliente from "../../modelos/cliente";
-import Endereco from "../../modelos/endereco";
-import Telefone from "../../modelos/telefone";
-import CadastrarDocumentosCliente from "../documentos/cadastrarDocumentosCliente";
+import Processo from "../../../abstracoes/processo";
+import Armazem from "../../../dominio/armazem";
+import Cliente from "../../../modelos/cliente";
+import Endereco from "../../../modelos/endereco";
+import Telefone from "../../../modelos/telefone";
+import CadastrarDocumentosCliente from "../../documentos/cadastrarDocumentosCliente";
 
 export default class CadastroClienteDependente extends Processo {
     processar(): void {

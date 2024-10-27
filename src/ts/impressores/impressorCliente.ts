@@ -11,12 +11,9 @@ import VerificaDependente from "../verificadores/verificaDependente";
 export default class ImpressaorCliente implements Impressor {
     private cliente: Cliente
     private impressor!: Impressor
-    private verificador!: Verificador
-    private isDependente: boolean
 
-    constructor(cliente: Cliente, isDependente: boolean) {
+    constructor(cliente: Cliente) {
         this.cliente = cliente
-        this.isDependente = isDependente
     }
     imprimir(): string {
         let impressao = `****************************\n`
@@ -34,23 +31,9 @@ export default class ImpressaorCliente implements Impressor {
         this.impressor =  new ImpressorTelefones(this.cliente.Telefones)
         impressao = impressao + `\n${this.impressor.imprimir()}`
 
-        this.verificador = new VerificaTitular(this.cliente)
-
-        if (!this.cliente.IsTitular) {
-            if (this.isDependente) {
-                if (this.cliente.Titular == null) {
-                    impressao = impressao + `\n| Titular excluído`
-                    return impressao
-                }
-                this.impressor = new ImpressaorCliente(this.cliente.Titular, true);
-                impressao = impressao + `\n| Titular:`;
-                impressao = impressao + `\n${this.impressor.imprimir()}`;
-            }
-        }
-
         if (this.cliente.Dependentes.length > 0 && this.cliente.IsTitular) {
             impressao = impressao + `\n| Dependentes:`
-            this.impressor = new ImpressorDependentes(this.cliente.Dependentes, false)
+            this.impressor = new ImpressorDependentes(this.cliente.Dependentes)
             impressao = impressao + `\n${this.impressor.imprimir()}`
         }
 

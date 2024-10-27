@@ -1,7 +1,6 @@
-import {Busca, BuscaLista} from "../../interfaces/busca";
-import Armazem from "../../dominio/armazem";
-import Cliente from "../../modelos/cliente";
-import BuscarClienteTitular from "./buscarClienteTitular";
+import {BuscaLista} from "../interfaces/busca";
+import Cliente from "../modelos/cliente";
+import BuscarClienteTitular from "./buscarCliente";
 
 export default class BuscarDependentesDoTitular implements BuscaLista {
     private documentoDependente: string

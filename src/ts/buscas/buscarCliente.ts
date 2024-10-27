@@ -1,8 +1,8 @@
-import {Busca} from "../../interfaces/busca";
-import Cliente from "../../modelos/cliente";
-import Armazem from "../../dominio/armazem";
+import {Busca} from "../interfaces/busca";
+import Cliente from "../modelos/cliente";
+import Armazem from "../dominio/armazem";
 
-export default class BuscarClienteTitular implements Busca {
+export default class BuscarCliente implements Busca {
     private documentoCliente: string
 
     constructor(documentoCliente: string) {

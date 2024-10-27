@@ -1,8 +1,8 @@
-import Processo from "../../abstracoes/processo";
-import Armazem from "../../dominio/armazem";
-import ImpressaorCliente from "../../impressores/impressorCliente";
-import Impressor from "../../interfaces/impressor";
-import Cliente from "../../modelos/cliente";
+import Processo from "../../../abstracoes/processo";
+import Armazem from "../../../dominio/armazem";
+import ImpressorDependente from "../../../impressores/impressorDependente";
+import Impressor from "../../../interfaces/impressor";
+import Cliente from "../../../modelos/cliente";
 
 export default class ListagemDependentes extends Processo {
     private clientes: Cliente[]
@@ -17,7 +17,7 @@ export default class ListagemDependentes extends Processo {
         console.log('Iniciando a listagem dos clientes dependentes...')
         this.clientes.forEach(cliente => {
             if (!cliente.IsTitular) {
-                this.impressor = new ImpressaorCliente(cliente, true)
+                this.impressor = new ImpressorDependente(cliente)
                 console.log(this.impressor.imprimir())
             }
         })

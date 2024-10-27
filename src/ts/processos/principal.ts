@@ -1,6 +1,6 @@
 import Processo from "../abstracoes/processo"
 import MenuPrincipal from "../menus/menuPricipal"
-import ExcluirClienteTitular from "./clientes/excluirClienteTitular"
+import ExcluirClienteTitular from "./clientes/exclusoes/excluirClienteTitular"
 import TipoCadastroCliente from "./clientes/tipoCadastroCliente"
 import TipoExclusaoCliente from "./clientes/tipoExclusaoCliente"
 import TipoListagemClientes from "./clientes/tipoListagemClientes"
