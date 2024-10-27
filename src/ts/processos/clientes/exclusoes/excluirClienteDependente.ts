@@ -24,7 +24,7 @@ export default class ExcluirClienteDependente extends Processo {
             }
             let indice = this.clientes.indexOf(cliente)
             this.clientes.splice(indice, 1)
-            console.log(`Cliente dependente ${cliente.Nome} excluído com sucesso!`)
+            let input = this.entrada.receberTexto(`Cliente ${cliente.Nome} excluído com sucesso!, pressione qualquer tecla para continuar...`)
         } else {
             console.log('Cliente não encontrado!')
         }

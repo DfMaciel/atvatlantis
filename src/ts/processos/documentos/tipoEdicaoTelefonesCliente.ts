@@ -1,14 +1,16 @@
-import Processo from "../../abstracoes/processo";
-import MenuTipoEdicaoDocumentoCliente from "../../menus/menuTipoEdicaoDocumentoCliente";
+import Menu from "../../interfaces/menu";
 import Cliente from "../../modelos/cliente";
-import CadastrarDocumentosCliente from "./cadastrarDocumentosCliente";
-import ExcluirDocumentoCliente from "./excluirDocumentoCliente";
+import Processo from "../../abstracoes/processo";
+import MenuTipoEdicaoTelefoneCliente from "../../menus/menuTipoEdicaoTelefoneCliente";
+import CadastroTelefonesCliente from "./cadastroTelefonesCliente";
+import ExcluirTelefoneCliente from "./excluirTelefoneCliente";
 
-export default class TipoEdicaoDocumentosCliente extends Processo {
+export default class TipoEdicaoTelefonesCliente extends Processo {
     private cliente: Cliente
+    public menu!: Menu
     constructor(cliente: Cliente) {
         super()
-        this.menu = new MenuTipoEdicaoDocumentoCliente()
+        this.menu = new MenuTipoEdicaoTelefoneCliente()
         this.cliente = cliente
     }
     processar(): void {
@@ -18,11 +20,11 @@ export default class TipoEdicaoDocumentosCliente extends Processo {
             this.opcao = this.entrada.receberNumero('Qual a opção desejada?')
             switch (this.opcao) {
                 case 1:
-                    this.processo = new CadastrarDocumentosCliente(this.cliente)
+                    this.processo = new CadastroTelefonesCliente(this.cliente)
                     this.processo.processar()
                     break;
                 case 2:
-                    this.processo =  new ExcluirDocumentoCliente(this.cliente)
+                    this.processo =  new ExcluirTelefoneCliente(this.cliente)
                     this.processo.processar()
                     break;
                 case 0:

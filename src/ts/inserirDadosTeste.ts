@@ -17,7 +17,7 @@ export default class InserirDadosTeste extends Processo {
         let titular = new Cliente("Titular Nome", "Titular Nome Social", new Date(1980, 1, 1));
         let endereco = new Endereco("Rua A", "123", "Bairro B", "Cidade C", "Estado D", "12345-678");
         let telefone = new Telefone("11", "987654321");
-        let documento = new Documento("12345678900", TipoDocumento.CPF, new Date(2000, 1, 1));
+        let documento = new Documento("123", TipoDocumento.CPF, new Date(2000, 1, 1));
 
         titular.Endereco = endereco;
         titular.Telefones = [telefone];
@@ -30,7 +30,8 @@ export default class InserirDadosTeste extends Processo {
         dependente.Titular = titular;
         dependente.Endereco = endereco;
         dependente.Telefones = [telefone];
-        dependente.Documentos = [documento];
+        let documento3 = new Documento("12345", TipoDocumento.CPF, new Date(2003, 10, 3))
+        dependente.Documentos = [documento3];
         dependente.IsTitular = false;
 
         titular.Dependentes.push(dependente);
@@ -40,7 +41,7 @@ export default class InserirDadosTeste extends Processo {
         let titular2 = new Cliente("Titular Novo", "Titular Novo Social", new Date(1980, 1, 1));
         let endereco2 = new Endereco("Rua A", "123", "Bairro B", "Cidade C", "Estado D", "12345-678");
         let telefone2 = new Telefone("11", "987654321");
-        let documento2 = new Documento("12345678900", TipoDocumento.CPF, new Date(2000, 1, 1));
+        let documento2 = new Documento("321", TipoDocumento.CPF, new Date(2000, 1, 1));
 
         titular2.Endereco = endereco2;
         titular2.Telefones = [telefone2];

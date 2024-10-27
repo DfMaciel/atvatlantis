@@ -1,7 +1,7 @@
 import Processo from "../abstracoes/processo"
 import MenuPrincipal from "../menus/menuPricipal"
-import ExcluirClienteTitular from "./clientes/exclusoes/excluirClienteTitular"
 import TipoCadastroCliente from "./clientes/tipoCadastroCliente"
+import TipoEdicaoCliente from "./clientes/tipoEdicaoCliente"
 import TipoExclusaoCliente from "./clientes/tipoExclusaoCliente"
 import TipoListagemClientes from "./clientes/tipoListagemClientes"
 
@@ -17,6 +17,10 @@ export default class Principal extends Processo {
         switch (this.opcao) {
             case 1:
                 this.processo = new TipoCadastroCliente()
+                this.processo.processar()
+                break
+            case 2:
+                this.processo = new TipoEdicaoCliente()
                 this.processo.processar()
                 break
             case 3:

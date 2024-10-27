@@ -1,15 +1,13 @@
 import Processo from "../../../abstracoes/processo";
-import Armazem from "../../../dominio/armazem";
-import { Busca } from "../../../interfaces/busca";
 import Cliente from "../../../modelos/cliente";
-import BuscarCliente from "../../../buscas/buscarCliente";
-import MenuCamposEdicaoClienteTitular from "../../../menus/menuCamposEdicaoClienteTitular";
-import CadastroEnderecoTitular from "../../documentos/cadastroEnderecoTitular";
+import { Busca } from "../../../interfaces/busca";
 import Impressor from "../../../interfaces/impressor";
+import Armazem from "../../../dominio/armazem";
+import MenuCamposEdicaoClienteDependente from "../../../menus/menuCamposEdicaoClienteDependente";
+import BuscarCliente from "../../../buscas/buscarCliente";
 import TipoEdicaoDocumentosCliente from "../../documentos/tipoEdicaoDocumentosCliente";
-import TipoEdicaoTelefonesCliente from "../../documentos/tipoEdicaoTelefonesCliente";
 
-export default class EdicaoClienteTitular extends Processo {
+export default class EdicaoClienteDependente extends Processo {
     private clientes: Cliente[]
     private documentoTitular: string
     private busca!: Busca
@@ -18,7 +16,7 @@ export default class EdicaoClienteTitular extends Processo {
         super()
         this.documentoTitular = documentoTitular
         this.clientes = Armazem.InstanciaUnica.Clientes
-        this.menu = new MenuCamposEdicaoClienteTitular
+        this.menu = new MenuCamposEdicaoClienteDependente
     }
     processar(): void {
         this.busca =  new BuscarCliente (this.documentoTitular)
@@ -43,15 +41,7 @@ export default class EdicaoClienteTitular extends Processo {
                         cliente.DataNascimento = dataNascimento
                         break;
                     case 4:
-                        this.processo = new CadastroEnderecoTitular(cliente)
-                        this.processo.processar()
-                        break;
-                    case 5:
                         this.processo = new TipoEdicaoDocumentosCliente(cliente)
-                        this.processo.processar()
-                        break;
-                    case 6:
-                        this.processo = new TipoEdicaoTelefonesCliente(cliente)
                         this.processo.processar()
                         break;
                     case 0:
