@@ -20,6 +20,9 @@ export default class CadastroEnderecoTitular extends Processo {
         let codigoPostal = this.entrada.receberTexto('Qual o código postal?')
         let endereco = new Endereco(rua,bairro,cidade,estado,pais,codigoPostal)
         this.cliente.Endereco = endereco
+        if (this.cliente.Dependentes.length > 0) {
+            this.cliente.Dependentes.forEach(dependente => dependente.Endereco = endereco)
+        }
     }
 
 }

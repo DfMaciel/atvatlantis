@@ -14,12 +14,17 @@ export default class BuscarDependentesDoTitular implements BuscaLista {
         let cliente = busca.buscar()
         if (cliente) {
             let dependentes = cliente.Dependentes
-            if (dependentes.length === 0) {
-                return undefined
+            if (dependentes.length < 1) {
+                console.log("Dependentes não encontrados!")
+                return
+            }
+            else {
+                return dependentes
             }
         }
         else {
-            return undefined
+            console.log("Titular não encontrado!")
+            return 
         }  
     }
 }

@@ -16,6 +16,9 @@ export default class CadastroTelefonesCliente extends Processo {
             let numero = this.entrada.receberTexto('Qual o número do telefone?')
             let telefone = new Telefone(ddd, numero)
             this.cliente.Telefones.push(telefone)
+            if (this.cliente.Dependentes.length > 0) {
+                this.cliente.Dependentes.forEach(dependente => dependente.Telefones = this.cliente.Telefones)
+            }
             let respostaUsuario = this.entrada.receberTexto('Deseja cadastrar mais um telefone? (s/n)').toLowerCase()
             if (respostaUsuario !== 's' && respostaUsuario !== 'n') {
                 console.log('Opção inválida. Por favor, responda "s" para sim ou "n" para não.')

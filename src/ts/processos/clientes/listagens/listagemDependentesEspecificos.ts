@@ -18,13 +18,12 @@ export default class ListagemDependentesEspecificos extends Processo {
         this.buscaLista = new BuscarDependentesDoTitular(this.documentoTitular)
         let dependentes = this.buscaLista.buscarVarios()
 
-        if (dependentes === undefined) {
-            console.log('Dependentes não encontrados.')
-            return
+        if (dependentes) {
+            console.log('Listagem de dependentes de um titular especifico...')
+            let impressor = new ImpressorDependentes(dependentes)
+            console.log(impressor.imprimir())
         }
-        console.log('Listagem de dependentes de um titular especifico...')
-        let impressor = new ImpressorDependentes(dependentes)
-        console.log(impressor.imprimir())
+        
         let entrada = this.entrada.receberTexto('Pressione qualquer botão para continuar...')
         if (entrada) {
             console.clear()
