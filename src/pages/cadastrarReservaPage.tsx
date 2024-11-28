@@ -88,7 +88,9 @@ export default function CadastrarReservaPage() {
                                 onChange={handleDataFimChange}
                             />
                         </FloatingLabel>
-                        <Button variant="primary" onClick={handleRegisterReserva}>Registrar Reserva</Button>
+                        <div className="botaoEnviarForm">
+                                <Button size="lg" onClick={handleRegisterReserva}> Registrar reserva </Button>
+                            </div>
                     </>
                 )}
             </Form>
