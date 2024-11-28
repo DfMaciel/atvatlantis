@@ -8,12 +8,12 @@ const initialReservas: VisualizarReserva[] = [
     {
         id: 1,
         acomodacao: {
-            nomeAcomadacao: 'Suite Luxo',
-            camaSolteiro: 2,
-            camaCasal: 1,
+            nomeAcomadacao: 'Solteiro Simples',
+            camaSolteiro: 1,
+            camaCasal: 0,
             suite: 1,
             climatizacao: true,
-            garagem: 1,
+            garagem: 0,
             quantidadeDisponivel: 5
         },
         dataInicio: '2023-12-01',
@@ -82,12 +82,12 @@ const initialReservas: VisualizarReserva[] = [
     {
         id: 2,
         acomodacao: {
-            nomeAcomadacao: 'Quarto Standard',
-            camaSolteiro: 2,
+            nomeAcomadacao: 'Solteiro Mais',
+            camaSolteiro: 1,
             camaCasal: 0,
-            suite: 0,
-            climatizacao: false,
-            garagem: 0,
+            suite: 1,
+            climatizacao: true,
+            garagem: 1,
             quantidadeDisponivel: 10
         },
         dataInicio: '2023-11-15',
@@ -115,12 +115,12 @@ const initialReservas: VisualizarReserva[] = [
     {
         id: 3,
         acomodacao: {
-            nomeAcomadacao: 'Apartamento Família',
-            camaSolteiro: 4,
-            camaCasal: 2,
-            suite: 2,
+            nomeAcomadacao: 'Casal Simples',
+            camaSolteiro: 0,
+            camaCasal: 1,
+            suite: 1,
             climatizacao: true,
-            garagem: 2,
+            garagem: 1,
             quantidadeDisponivel: 3
         },
         dataInicio: '2023-12-20',
@@ -185,12 +185,12 @@ const initialReservas: VisualizarReserva[] = [
     {
         id: 4,
         acomodacao: {
-            nomeAcomadacao: 'Quarto Econômico',
-            camaSolteiro: 1,
-            camaCasal: 0,
-            suite: 0,
-            climatizacao: false,
-            garagem: 0,
+            nomeAcomadacao: 'Família Simples',
+            camaSolteiro: 2,
+            camaCasal: 1,
+            suite: 1,
+            climatizacao: true,
+            garagem: 1,
             quantidadeDisponivel: 15
         },
         dataInicio: '2023-10-05',
@@ -218,10 +218,10 @@ const initialReservas: VisualizarReserva[] = [
     {
         id: 5,
         acomodacao: {
-            nomeAcomadacao: 'Suite Presidencial',
-            camaSolteiro: 0,
+            nomeAcomadacao: 'Família Mais',
+            camaSolteiro: 5,
             camaCasal: 1,
-            suite: 1,
+            suite: 2,
             climatizacao: true,
             garagem: 2,
             quantidadeDisponivel: 1
@@ -251,12 +251,12 @@ const initialReservas: VisualizarReserva[] = [
     {
         id: 6,
         acomodacao: {
-            nomeAcomadacao: 'Chalé',
-            camaSolteiro: 2,
-            camaCasal: 1,
-            suite: 1,
+            nomeAcomadacao: 'Família Super',
+            camaSolteiro: 6,
+            camaCasal: 2,
+            suite: 3,
             climatizacao: true,
-            garagem: 1,
+            garagem: 2,
             quantidadeDisponivel: 4
         },
         dataInicio: '2023-11-10',

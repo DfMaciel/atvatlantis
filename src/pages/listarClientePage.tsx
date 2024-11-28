@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Card, Form, FormControl, Button, Row, Col, CardGroup, InputGroup, Modal } from 'react-bootstrap';
+import { Card, Form, FormControl, Row, Col, Button, InputGroup } from 'react-bootstrap';
 import { VisualizarUsuario } from '../interface/usuarioInterface';
-import { FaFilter } from 'react-icons/fa'; 
-import VisualizarClienteModal from '../componentes/modal/visualizarClienteModal';
+import { FaFilter } from 'react-icons/fa'; // Import filter icon
+import VisualizarClienteModal from '../componentes/modal/visualizarClienteModal'; // Import the modal component
 
 const initialClientes: VisualizarUsuario[] = [
     {
@@ -61,25 +61,6 @@ const initialClientes: VisualizarUsuario[] = [
                     { ddd: '11', numero: '91234-5678' }
                 ],
                 isDependente: true
-            },
-            {
-                id: 9,
-                nome: 'Pedro Silva',
-                email: 'pedro@gmail.com',
-                dataNascimento: '2020-12-10',
-                estado: 'SP',
-                cidade: 'São Paulo',
-                rua: 'Rua A',
-                numeroRua: '123',
-                cep: '01000-000',
-                documentos: [
-                    { tipo: 'CPF', numero: '789012', dataEmissao: '2020-12-10' }
-                ],
-                telefones: [
-                    { ddd: '11', numero: '98765-4321' },
-                    { ddd: '11', numero: '91234-5678' }
-                ],
-                isDependente: true
             }
         ],
         isDependente: false
@@ -88,74 +69,19 @@ const initialClientes: VisualizarUsuario[] = [
         id: 2,
         nome: 'Maria Oliveira',
         email: 'maria@example.com',
-        dataNascimento: '1985-05-15',
+        dataNascimento: '1985-03-10',
         estado: 'RJ',
         cidade: 'Rio de Janeiro',
         rua: 'Rua B',
         numeroRua: '456',
         cep: '20000-000',
         documentos: [
-            { tipo: 'cpf', numero: '987.654.321-00', dataEmissao: '2012-05-15' }
+            { tipo: 'cpf', numero: '987.654.321-00', dataEmissao: '2005-03-10' }
         ],
         telefones: [
-            { ddd: '21', numero: '99876-5432' }
+            { ddd: '21', numero: '98765-4321' }
         ],
-        dependentes: [
-            {
-                id: 10,
-                nome: 'Ana Oliveira',
-                email: 'ana@gmail.com',
-                dataNascimento: '2010-03-25',
-                estado: 'RJ',
-                cidade: 'Rio de Janeiro',
-                rua: 'Rua B',
-                numeroRua: '456',
-                cep: '20000-000',
-                documentos: [
-                    { tipo: 'CPF', numero: '345678', dataEmissao: '2010-03-25' }
-                ],
-                telefones: [
-                    { ddd: '21', numero: '99876-5432' }
-                ],
-                isDependente: true
-            },
-            {
-                id: 11,
-                nome: 'Carlos Oliveira',
-                email: 'carlos@gmail.co',
-                dataNascimento: '2013-07-30',
-                estado: 'RJ',
-                cidade: 'Rio de Janeiro',
-                rua: 'Rua B',
-                numeroRua: '456',
-                cep: '20000-000',
-                documentos: [
-                    { tipo: 'CPF', numero: '876543', dataEmissao: '2013-07-30' }
-                ],
-                telefones: [
-                    { ddd: '21', numero: '99876-5432' }
-                ],
-                isDependente: true
-            },
-            {
-                id: 12,
-                nome: 'Beatriz Oliveira',
-                email: 'beatriz@gmail.com',
-                dataNascimento: '2016-11-05',
-                estado: 'RJ',
-                cidade: 'Rio de Janeiro',
-                rua: 'Rua B',
-                numeroRua: '456',
-                cep: '20000-000',
-                documentos: [
-                    { tipo: 'CPF', numero: '234567', dataEmissao: '2016-11-05' }
-                ],
-                telefones: [
-                    { ddd: '21', numero: '99876-5432' }
-                ],
-                isDependente: true
-            }
-        ],
+        dependentes: [],
         isDependente: false
     },
     {
@@ -204,85 +130,13 @@ const initialClientes: VisualizarUsuario[] = [
                 numeroRua: '789',
                 cep: '30000-000',
                 documentos: [
-                    { tipo: 'CPF', numero: '098765', dataEmissao: '2008-06-18' }
-                ],
-                telefones: [
-                    { ddd: '31', numero: '98765-4321' }
-                ],
-                isDependente: true
-            },
-            {
-                id: 15,
-                nome: 'Marcos Souza',
-                email: 'marcossouza@gmail.com',
-                dataNascimento: '2012-09-22',
-                estado: 'MG',
-                cidade: 'Belo Horizonte',
-                rua: 'Rua C',
-                numeroRua: '789',
-                cep: '30000-000',
-                documentos: [
-                    { tipo: 'CPF', numero: '345678', dataEmissao: '2012-09-22' }
+                    { tipo: 'CPF', numero: '678901', dataEmissao: '2008-06-18' }
                 ],
                 telefones: [
                     { ddd: '31', numero: '98765-4321' }
                 ],
                 isDependente: true
             }
-        ],
-        isDependente: false
-    },
-    {
-        id: 4,
-        nome: 'Ana Paula',
-        email: 'ana@example.com',
-        dataNascimento: '1992-03-12',
-        estado: 'SP',
-        cidade: 'Campinas',
-        rua: 'Rua D',
-        numeroRua: '321',
-        cep: '13000-000',
-        documentos: [
-            { tipo: 'cpf', numero: '321.654.987-00', dataEmissao: '2015-03-12' }
-        ],
-        telefones: [
-            { ddd: '19', numero: '98765-4321' }
-        ],
-        isDependente: false
-    },
-    {
-        id: 5,
-        nome: 'Pedro Santos',
-        email: 'pedro@example.com',
-        dataNascimento: '1980-07-25',
-        estado: 'BA',
-        cidade: 'Salvador',
-        rua: 'Rua E',
-        numeroRua: '654',
-        cep: '40000-000',
-        documentos: [
-            { tipo: 'cpf', numero: '654.321.987-00', dataEmissao: '2008-07-25' }
-        ],
-        telefones: [
-            { ddd: '71', numero: '98765-4321' }
-        ],
-        isDependente: false
-    },
-    {
-        id: 6,
-        nome: 'Fernanda Lima',
-        email: 'fernanda@example.com',
-        dataNascimento: '1995-11-30',
-        estado: 'RS',
-        cidade: 'Porto Alegre',
-        rua: 'Rua F',
-        numeroRua: '987',
-        cep: '90000-000',
-        documentos: [
-            { tipo: 'cpf', numero: '987.654.321-00', dataEmissao: '2010-11-30' }
-        ],
-        telefones: [
-            { ddd: '51', numero: '98765-4321' }
         ],
         isDependente: false
     }
@@ -295,7 +149,7 @@ export default function ListarClientePage() {
     const [selectedFilter, setSelectedFilter] = useState<string>('');
     const [selectedCliente, setSelectedCliente] = useState<VisualizarUsuario | null>(null);
     const [showModal, setShowModal] = useState<boolean>(false);
-    
+
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchTerm(event.target.value);
     };
@@ -324,32 +178,32 @@ export default function ListarClientePage() {
     const filteredClientes = clientes.filter(cliente => {
         const searchTermLower = searchTerm.toLowerCase();
 
-        const filteredClientes = clientes.filter(cliente => {
-            const searchTermLower = searchTerm.toLowerCase();
-    
-            if (selectedFilter === 'dependente') {
-                const titular = clientes.find(cliente =>
-                    cliente.documentos.some(documento => documento.numero.includes(searchTermLower))
-                );
-                return titular ? titular.dependentes : [];
-            } else if (selectedFilter === 'titular') {
-                return cliente.dependentes?.some(dependente =>
-                    dependente.documentos.some(documento => documento.numero.includes(searchTermLower))
-                );
-            } else {
-                const isMatch = cliente.nome.toLowerCase().includes(searchTermLower) ||
-                    cliente.documentos.some(documento => documento.numero.includes(searchTermLower)) ||
-                    cliente.dependentes?.some(dependente => dependente.nome.toLowerCase().includes(searchTermLower) ||
-                        dependente.documentos.some(documento => documento.numero.includes(searchTermLower)));
-                return isMatch;
-            }
-        })});
-    
-        const dependentes = selectedFilter === 'dependente' ? filteredClientes.flatMap(cliente => cliente.dependentes || []) : filteredClientes;
+        if (selectedFilter === 'dependente') {
+            // Filter to show all dependents of the user searched by document number
+            const titular = clientes.find(cliente =>
+                cliente.documentos.some(documento => documento.numero.includes(searchTermLower))
+            );
+            return titular ? titular.dependentes?.some(dependente => dependente.documentos.some(documento => documento.numero.includes(searchTermLower))) : false;
+        } else if (selectedFilter === 'titular') {
+            // Filter to show the user who is the titular of a dependent with the matching document number
+            return cliente.dependentes?.some(dependente =>
+                dependente.documentos.some(documento => documento.numero.includes(searchTermLower))
+            );
+        } else {
+            // Default filter to show titulares
+            const isMatch = cliente.nome.toLowerCase().includes(searchTermLower) ||
+                cliente.documentos.some(documento => documento.numero.includes(searchTermLower)) ||
+                cliente.dependentes?.some(dependente => dependente.nome.toLowerCase().includes(searchTermLower) ||
+                    dependente.documentos.some(documento => documento.numero.includes(searchTermLower)));
+            return isMatch;
+        }
+    });
+
+    const dependentes = selectedFilter === 'dependente' ? filteredClientes.flatMap(cliente => cliente.dependentes || []) : filteredClientes;
 
     return (
         <div className="divTotalCadastro">
-            <h1 style={{textAlign:"center", color:"white"}}> Listagem de clientes </h1>
+            <h1 style={{ textAlign: "center", color: "white" }}> Listagem de clientes </h1>
             <Form className={`search-form ${showFilters ? 'extended' : ''}`} style={{ width: "50%", marginTop: "2%" }}>
                 <InputGroup>
                     <FormControl
@@ -387,15 +241,15 @@ export default function ListarClientePage() {
                     </div>
                 )}
             </Form>
-            <Row className={`custom-row ${filteredClientes.length === 1 ? 'justify-content-center' : ''}`}>
-            {dependentes.map(cliente => (
+            <Row className={`custom-row ${dependentes.length === 1 ? 'justify-content-center' : ''}`}>
+                {dependentes.map(cliente => (
                     <Col key={cliente.id} sm={12} md={6} lg={4} className="mb-4">
                         <Card className='custom-card2' onClick={() => handleCardClick(cliente)}>
                             <Card.Body>
                                 <Card.Title style={{ color: "white" }}>{cliente.nome}</Card.Title>
                                 <Card.Text style={{ color: "white", fontWeight: "500" }}>
                                     <strong>Email:</strong> {cliente.email}<br />
-                                    <strong>Telefone:</strong> {cliente.telefones[0].ddd} {cliente.telefones[0].numero}<br />
+                                    <strong>Telefone:</strong> {cliente.telefones[0]?.ddd} {cliente.telefones[0]?.numero}<br />
                                 </Card.Text>
                                 <p className="verDetalhes"> Ver detalhes </p>
                             </Card.Body>
@@ -411,5 +265,5 @@ export default function ListarClientePage() {
                 />
             )}
         </div>
-    )
+    );
 }

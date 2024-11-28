@@ -97,11 +97,16 @@ export default function VisualizarReservaModal(props: VisualizarReservaModalProp
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={onHide}>Cancelar</Button>
-                {isEditing ? (
-                    <Button variant="primary" onClick={handleSave}>Salvar</Button>
-                ) : (
-                    <Button variant="primary" onClick={toggleEditMode}>Editar</Button>
-                )}
+                <div className="botaoEditarUsuario">
+                        {isEditing ? (
+                            <>
+                                <Button onClick={handleSave}>Salvar</Button>
+                                <Button onClick={handleSave}>Excluir</Button>
+                            </>
+                        ) : (
+                            <Button onClick={toggleEditMode}>Editar</Button>
+                        )}
+                    </div>
             </Modal.Footer>
         </Modal>
     );
