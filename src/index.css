@@ -1,0 +1,146 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.divTotal {
+  min-height: 100vh;
+  background: var(--gradient-color);
+}
+
+.navbar-customizada {
+  background-color: transparent !important;
+  color: white;
+}
+
+.dropdown-menu {
+  background: transparent !important;
+}
+
+.divTotalHome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.tituloHome {
+  color: white;
+  margin-top: 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tituloHome button {
+  margin-top: 4%;
+  background-color: rgba(241, 55, 8, 0.164);
+  border-color: rgba(241, 55, 8, 0.164);
+}
+
+.tituloHome button:hover {
+  background-color: rgba(241, 55, 8, 0.548) !important;
+  border-color: rgba(241, 55, 8, 0.164) !important;
+}
+
+button:active {
+  background-color: rgba(241, 55, 8, 0.548) !important;
+  border-color: rgba(241, 55, 8, 0.164) !important;
+}
+
+a:active {
+  background-color: rgba(241, 55, 8, 0.548) !important;
+  border-color: rgba(241, 55, 8, 0.164) !important;
+}
+
+.locacoesHome {
+  margin-top: 1%;
+  color: white;
+}
+
+.locacoesHome h4 {
+  text-align: center;
+  
+}
+
+.card-group {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2%;
+}
+
+.custom-card {
+  height: 10%;
+  max-width: 20%;
+  margin: 10px; 
+  background: transparent !important;
+}
+
+.custom-card .card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.custom-card .card-img-top {
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.cardimagem {
+  padding-top: 20px;
+  height: 120px !important;
+  width: 100px !important;
+  object-fit:scale-down;
+}
+
+.formTipoUsuario {
+  width: 50%;
+  margin-top: 2%;
+}
+
+.divTotalCadastro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.formCadastroUsuario {
+  /* background-color: white; */
+  padding: 2%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.233);
+  width: 50%;
+  margin-top: 2%;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-card {
+    max-width: 100%;
+  }
+
+  .card-group {
+    flex-direction: column;
+  }
+
+  .formTipoUsuario {
+    width: 80%;
+    margin-top: 10%;
+  }
+
+  .formCadastroUsuario {
+    margin-top: 10%;
+    width: 80%;
+  }
+}
