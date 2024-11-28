@@ -3,9 +3,9 @@
 >
     git clone https://github.com/DfMaciel/atvatlantis
 >
-1. Altere para a branch `atvi`.
+1. Altere para a branch `Atividade-1`.
 >
-    git checkout -b atvi
+    git checkout -b Atividade-1
 >
 1. Execute `npm install` para instalar as dependências do projeto.
 2. Execute `npx tsc` para compilar o código TypeScript.
