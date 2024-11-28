@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import HomePage from '../pages/home';
 import CadastrarClientePage from '../pages/cadastrarClientePage';
 import ListarClientePage from '../pages/listarClientePage';
+import ListarReservasPage from '../pages/listarReservasPage';
 
 export default function Rotas () {
     return (
@@ -9,6 +10,7 @@ export default function Rotas () {
             <Route path="/" element={<HomePage />} />
             <Route path="/cadastrarCliente" element={<CadastrarClientePage />} />
             <Route path="/listarCliente" element={<ListarClientePage />} />
+            <Route path="/listarReservas" element={<ListarReservasPage />} />
         </Routes>
     )
 }

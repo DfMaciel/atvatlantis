@@ -22,8 +22,8 @@ export default function NavbarComponent() {
                         {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
                     </NavDropdown>
                     <NavDropdown menuVariant='dark' title="Reservas" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Listar</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Cadastrar</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/listarReservas">Listar</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/cadastrarReserva">Cadastrar</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
             </Navbar.Collapse>

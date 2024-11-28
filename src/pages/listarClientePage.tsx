@@ -324,30 +324,28 @@ export default function ListarClientePage() {
     const filteredClientes = clientes.filter(cliente => {
         const searchTermLower = searchTerm.toLowerCase();
 
-        if (selectedFilter === 'dependente') {
-            // Filter to show all dependents of the user searched by document number
-            const titular = clientes.find(cliente =>
-                cliente.documentos.some(documento => documento.numero.includes(searchTermLower))
-            );
-            return titular ? titular.dependentes?.filter(dependente =>
-                dependente.documentos.some(documento => documento.numero.includes(searchTermLower))
-            ) : [];
-        } else if (selectedFilter === 'titular') {
-            // Filter to show the user who is the titular of a dependent with the matching document number
-            return cliente.dependentes?.some(dependente =>
-                dependente.documentos.some(documento => documento.numero.includes(searchTermLower))
-            );
-        } else {
-            // Default filter to show titulares
-            const isMatch = cliente.nome.toLowerCase().includes(searchTermLower) ||
-                cliente.documentos.some(documento => documento.numero.includes(searchTermLower)) ||
-                cliente.dependentes?.some(dependente => dependente.nome.toLowerCase().includes(searchTermLower) ||
-                    dependente.documentos.some(documento => documento.numero.includes(searchTermLower)));
-            return isMatch;
-        }
-    });
-
-    const dependentes = selectedFilter === 'dependente' ? filteredClientes.flatMap(cliente => cliente.dependentes || []) : filteredClientes;
+        const filteredClientes = clientes.filter(cliente => {
+            const searchTermLower = searchTerm.toLowerCase();
+    
+            if (selectedFilter === 'dependente') {
+                const titular = clientes.find(cliente =>
+                    cliente.documentos.some(documento => documento.numero.includes(searchTermLower))
+                );
+                return titular ? titular.dependentes : [];
+            } else if (selectedFilter === 'titular') {
+                return cliente.dependentes?.some(dependente =>
+                    dependente.documentos.some(documento => documento.numero.includes(searchTermLower))
+                );
+            } else {
+                const isMatch = cliente.nome.toLowerCase().includes(searchTermLower) ||
+                    cliente.documentos.some(documento => documento.numero.includes(searchTermLower)) ||
+                    cliente.dependentes?.some(dependente => dependente.nome.toLowerCase().includes(searchTermLower) ||
+                        dependente.documentos.some(documento => documento.numero.includes(searchTermLower)));
+                return isMatch;
+            }
+        })});
+    
+        const dependentes = selectedFilter === 'dependente' ? filteredClientes.flatMap(cliente => cliente.dependentes || []) : filteredClientes;
 
     return (
         <div className="divTotalCadastro">
