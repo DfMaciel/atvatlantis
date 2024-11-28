@@ -3,14 +3,16 @@ import pessoaIcon from "../assets/pessoaIcon.png";
 import iconePessoa from "../assets/iconePessoa.png";
 import casalIcon from "../assets/casalIcon.png"
 import familiaIcon from "../assets/iconeFamilia.png"
+import { useNavigate } from "react-router-dom";
 
 export default function HomePage () {
+    const navigate = useNavigate();
     return (
         <div className="divTotalHome">
             <div className="tituloHome">
                 <h1 style={{textAlign: "center"}}> Bem vindo ao Atlantis! </h1>
                 <h5 style={{marginTop:"2%"}}> O melhor sistema de gerenciamento de resorts e locações</h5>
-                <Button size="lg"> Realize sua reserva! </Button>
+                <Button onClick={() => {navigate("/cadastrarReserva")}} size="lg"> Realize sua reserva! </Button>
                 <h6 style={{marginTop: "3%"}}> ou </h6>
             </div>
             <div className="locacoesHome">

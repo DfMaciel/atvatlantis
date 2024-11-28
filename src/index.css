@@ -252,7 +252,12 @@ button:active {
   color: white;
 }
 
+.botaoEditarUsuario {
+  width: 21%;
+}
+
 .botaoEditarUsuario button{
+  margin-right: 5%;
   background-color: rgba(241, 55, 8, 0.705) !important;
   border-color: rgba(241, 55, 8, 0.164) !important;
 }
@@ -294,5 +299,15 @@ button:active {
     background-color: #e9ecef;
     opacity: 1;
     pointer-events: none;
+  }
+
+  .botaoEditarUsuario {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width:769px) and (max-width: 1000px) {
+  .botaoEditarUsuario {
+    width: 35%;
   }
 }
