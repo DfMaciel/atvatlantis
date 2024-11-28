@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Card, Form, FormControl, Button, Row, Col, CardGroup, InputGroup } from 'react-bootstrap';
+import { Card, Form, FormControl, Button, Row, Col, CardGroup, InputGroup, Modal } from 'react-bootstrap';
 import { VisualizarUsuario } from '../interface/usuarioInterface';
 import { FaFilter } from 'react-icons/fa'; 
+import VisualizarClienteModal from '../componentes/modal/visualizarClienteModal';
 
 const initialClientes: VisualizarUsuario[] = [
     {
@@ -26,49 +27,58 @@ const initialClientes: VisualizarUsuario[] = [
             {
                 id: 7,
                 nome: 'Lucas Silva',
-                email: '',
+                email: 'lucas@gmail.com',
                 dataNascimento: '2015-05-20',
-                estado: '',
-                cidade: '',
-                rua: '',
-                numeroRua: '',
-                cep: '',
+                estado: 'SP',
+                cidade: 'São Paulo',
+                rua: 'Rua A',
+                numeroRua: '123',
+                cep: '01000-000',
                 documentos: [
                     { tipo: 'CPF', numero: '123456', dataEmissao: '2015-05-20' }
                 ],
-                telefones: [],
+                telefones: [
+                    { ddd: '11', numero: '98765-4321' },
+                    { ddd: '11', numero: '91234-5678' }
+                ],
                 isDependente: true
             },
             {
                 id: 8,
                 nome: 'Mariana Silva',
-                email: '',
+                email: 'mariana@gmail.com',
                 dataNascimento: '2018-08-15',
-                estado: '',
-                cidade: '',
-                rua: '',
-                numeroRua: '',
-                cep: '',
+                estado: 'SP',
+                cidade: 'São Paulo',
+                rua: 'Rua A',
+                numeroRua: '123',
+                cep: '01000-000',
                 documentos: [
                     { tipo: 'CPF', numero: '654321', dataEmissao: '2018-08-15' }
                 ],
-                telefones: [],
+                telefones: [
+                    { ddd: '11', numero: '98765-4321' },
+                    { ddd: '11', numero: '91234-5678' }
+                ],
                 isDependente: true
             },
             {
                 id: 9,
                 nome: 'Pedro Silva',
-                email: '',
+                email: 'pedro@gmail.com',
                 dataNascimento: '2020-12-10',
-                estado: '',
-                cidade: '',
-                rua: '',
-                numeroRua: '',
-                cep: '',
+                estado: 'SP',
+                cidade: 'São Paulo',
+                rua: 'Rua A',
+                numeroRua: '123',
+                cep: '01000-000',
                 documentos: [
                     { tipo: 'CPF', numero: '789012', dataEmissao: '2020-12-10' }
                 ],
-                telefones: [],
+                telefones: [
+                    { ddd: '11', numero: '98765-4321' },
+                    { ddd: '11', numero: '91234-5678' }
+                ],
                 isDependente: true
             }
         ],
@@ -94,49 +104,55 @@ const initialClientes: VisualizarUsuario[] = [
             {
                 id: 10,
                 nome: 'Ana Oliveira',
-                email: '',
+                email: 'ana@gmail.com',
                 dataNascimento: '2010-03-25',
-                estado: '',
-                cidade: '',
-                rua: '',
-                numeroRua: '',
-                cep: '',
+                estado: 'RJ',
+                cidade: 'Rio de Janeiro',
+                rua: 'Rua B',
+                numeroRua: '456',
+                cep: '20000-000',
                 documentos: [
                     { tipo: 'CPF', numero: '345678', dataEmissao: '2010-03-25' }
                 ],
-                telefones: [],
+                telefones: [
+                    { ddd: '21', numero: '99876-5432' }
+                ],
                 isDependente: true
             },
             {
                 id: 11,
                 nome: 'Carlos Oliveira',
-                email: '',
+                email: 'carlos@gmail.co',
                 dataNascimento: '2013-07-30',
-                estado: '',
-                cidade: '',
-                rua: '',
-                numeroRua: '',
-                cep: '',
+                estado: 'RJ',
+                cidade: 'Rio de Janeiro',
+                rua: 'Rua B',
+                numeroRua: '456',
+                cep: '20000-000',
                 documentos: [
                     { tipo: 'CPF', numero: '876543', dataEmissao: '2013-07-30' }
                 ],
-                telefones: [],
+                telefones: [
+                    { ddd: '21', numero: '99876-5432' }
+                ],
                 isDependente: true
             },
             {
                 id: 12,
                 nome: 'Beatriz Oliveira',
-                email: '',
+                email: 'beatriz@gmail.com',
                 dataNascimento: '2016-11-05',
-                estado: '',
-                cidade: '',
-                rua: '',
-                numeroRua: '',
-                cep: '',
+                estado: 'RJ',
+                cidade: 'Rio de Janeiro',
+                rua: 'Rua B',
+                numeroRua: '456',
+                cep: '20000-000',
                 documentos: [
                     { tipo: 'CPF', numero: '234567', dataEmissao: '2016-11-05' }
                 ],
-                telefones: [],
+                telefones: [
+                    { ddd: '21', numero: '99876-5432' }
+                ],
                 isDependente: true
             }
         ],
@@ -162,49 +178,55 @@ const initialClientes: VisualizarUsuario[] = [
             {
                 id: 13,
                 nome: 'Joana Souza',
-                email: '',
+                email: 'joana@gmail.com',
                 dataNascimento: '2005-02-14',
-                estado: '',
-                cidade: '',
-                rua: '',
-                numeroRua: '',
-                cep: '',
+                estado: 'MG',
+                cidade: 'Belo Horizonte',
+                rua: 'Rua C',
+                numeroRua: '789',
+                cep: '30000-000',
                 documentos: [
                     { tipo: 'CPF', numero: '567890', dataEmissao: '2005-02-14' }
                 ],
-                telefones: [],
+                telefones: [
+                    { ddd: '31', numero: '98765-4321' }
+                ],
                 isDependente: true
             },
             {
                 id: 14,
                 nome: 'Lucas Souza',
-                email: '',
+                email: 'lucassouza@gmail.com',
                 dataNascimento: '2008-06-18',
-                estado: '',
-                cidade: '',
-                rua: '',
-                numeroRua: '',
-                cep: '',
+                estado: 'MG',
+                cidade: 'Belo Horizonte',
+                rua: 'Rua C',
+                numeroRua: '789',
+                cep: '30000-000',
                 documentos: [
                     { tipo: 'CPF', numero: '098765', dataEmissao: '2008-06-18' }
                 ],
-                telefones: [],
+                telefones: [
+                    { ddd: '31', numero: '98765-4321' }
+                ],
                 isDependente: true
             },
             {
                 id: 15,
                 nome: 'Marcos Souza',
-                email: '',
+                email: 'marcossouza@gmail.com',
                 dataNascimento: '2012-09-22',
-                estado: '',
-                cidade: '',
-                rua: '',
-                numeroRua: '',
-                cep: '',
+                estado: 'MG',
+                cidade: 'Belo Horizonte',
+                rua: 'Rua C',
+                numeroRua: '789',
+                cep: '30000-000',
                 documentos: [
                     { tipo: 'CPF', numero: '345678', dataEmissao: '2012-09-22' }
                 ],
-                telefones: [],
+                telefones: [
+                    { ddd: '31', numero: '98765-4321' }
+                ],
                 isDependente: true
             }
         ],
@@ -271,6 +293,8 @@ export default function ListarClientePage() {
     const [searchTerm, setSearchTerm] = useState<string>('');
     const [showFilters, setShowFilters] = useState<boolean>(false);
     const [selectedFilter, setSelectedFilter] = useState<string>('');
+    const [selectedCliente, setSelectedCliente] = useState<VisualizarUsuario | null>(null);
+    const [showModal, setShowModal] = useState<boolean>(false);
     
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchTerm(event.target.value);
@@ -287,15 +311,34 @@ export default function ListarClientePage() {
         setSelectedFilter(event.target.value);
     };
 
+    const handleCardClick = (cliente: VisualizarUsuario) => {
+        setSelectedCliente(cliente);
+        setShowModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+        setSelectedCliente(null);
+    };
+
     const filteredClientes = clientes.filter(cliente => {
         const searchTermLower = searchTerm.toLowerCase();
 
         if (selectedFilter === 'dependente') {
-            return cliente.documentos.some(documento => documento.numero.includes(searchTermLower)) &&
-                (cliente.dependentes?.length ?? 0) > 0;
+            // Filter to show all dependents of the user searched by document number
+            const titular = clientes.find(cliente =>
+                cliente.documentos.some(documento => documento.numero.includes(searchTermLower))
+            );
+            return titular ? titular.dependentes?.filter(dependente =>
+                dependente.documentos.some(documento => documento.numero.includes(searchTermLower))
+            ) : [];
         } else if (selectedFilter === 'titular') {
-            return cliente.dependentes?.some(dependente => dependente.documentos.some(documento => documento.numero.includes(searchTermLower)));
+            // Filter to show the user who is the titular of a dependent with the matching document number
+            return cliente.dependentes?.some(dependente =>
+                dependente.documentos.some(documento => documento.numero.includes(searchTermLower))
+            );
         } else {
+            // Default filter to show titulares
             const isMatch = cliente.nome.toLowerCase().includes(searchTermLower) ||
                 cliente.documentos.some(documento => documento.numero.includes(searchTermLower)) ||
                 cliente.dependentes?.some(dependente => dependente.nome.toLowerCase().includes(searchTermLower) ||
@@ -303,6 +346,8 @@ export default function ListarClientePage() {
             return isMatch;
         }
     });
+
+    const dependentes = selectedFilter === 'dependente' ? filteredClientes.flatMap(cliente => cliente.dependentes || []) : filteredClientes;
 
     return (
         <div className="divTotalCadastro">
@@ -345,20 +390,28 @@ export default function ListarClientePage() {
                 )}
             </Form>
             <Row className={`custom-row ${filteredClientes.length === 1 ? 'justify-content-center' : ''}`}>
-                {filteredClientes.map(cliente => (
+            {dependentes.map(cliente => (
                     <Col key={cliente.id} sm={12} md={6} lg={4} className="mb-4">
-                        <Card className='custom-card2'>
+                        <Card className='custom-card2' onClick={() => handleCardClick(cliente)}>
                             <Card.Body>
                                 <Card.Title style={{ color: "white" }}>{cliente.nome}</Card.Title>
                                 <Card.Text style={{ color: "white", fontWeight: "500" }}>
                                     <strong>Email:</strong> {cliente.email}<br />
                                     <strong>Telefone:</strong> {cliente.telefones[0].ddd} {cliente.telefones[0].numero}<br />
                                 </Card.Text>
+                                <p className="verDetalhes"> Ver detalhes </p>
                             </Card.Body>
                         </Card>
                     </Col>
                 ))}
             </Row>
+            {selectedCliente && (
+                <VisualizarClienteModal
+                    show={showModal}
+                    onHide={handleCloseModal}
+                    usuario={selectedCliente}
+                />
+            )}
         </div>
     )
 }

@@ -199,6 +199,11 @@ button:active {
   margin: 0 auto;
 }
 
+.verDetalhes {
+  color: white;
+  font-weight: 500;
+}
+
 .custom-row {
   margin-top: 3% !important;
   max-width: 80%; 
@@ -247,6 +252,16 @@ button:active {
   color: white;
 }
 
+.botaoEditarUsuario button{
+  background-color: rgba(241, 55, 8, 0.705) !important;
+  border-color: rgba(241, 55, 8, 0.164) !important;
+}
+
+.botaoEditarUsuario button:hover {
+  background-color: rgba(241, 55, 8, 0.897) !important;
+  border-color: rgba(241, 55, 8, 0.164) !important;
+}
+
 @media screen and (max-width: 768px) {
   .custom-card {
     max-width: 100%;
@@ -273,5 +288,11 @@ button:active {
   .botaoEnviarForm {
     margin-top: 10%;
     margin-bottom: 10%;
+  }
+
+  .read-only {
+    background-color: #e9ecef;
+    opacity: 1;
+    pointer-events: none;
   }
 }
