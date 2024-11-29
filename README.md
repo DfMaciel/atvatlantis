@@ -5,7 +5,7 @@
 >
 2. Altere para a branch `Atividade-1`.
 >
-    git checkout -b Atividade-1
+    git checkout Atividade-1
 >
 3. Execute `npm install` para instalar as dependências do projeto.
 4. Execute `npx tsc` para compilar o código TypeScript.
