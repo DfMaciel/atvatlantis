@@ -1,8 +1,8 @@
-import Processo from "../abstracoes/processo";
-import Armazem from "../dominio/armazem";
-import ImpressorAcomodacao from "../impressores/impressorAcomodacao";
-import Impressor from "../interfaces/impressor";
-import Acomodacao from "../modelos/acomodacao";
+import Processo from "../../abstracoes/processo";
+import Armazem from "../../dominio/armazem";
+import ImpressorAcomodacao from "../../impressores/impressorAcomodacao";
+import Impressor from "../../interfaces/impressor";
+import Acomodacao from "../../modelos/acomodacao";
 
 export default class ListagemAcomodacoes extends Processo {
     private acomodacoes: Acomodacao[]
@@ -18,6 +18,7 @@ export default class ListagemAcomodacoes extends Processo {
         this.acomodacoes.forEach(acomodacao => {
             this.impressor = new ImpressorAcomodacao(acomodacao)
             console.log(this.impressor.imprimir())
+            this.entrada.aguardarEnter()
             console.log(`-------------------------------------------------`)
         })
     }
