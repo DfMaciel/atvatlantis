@@ -2,6 +2,7 @@ import Menu from "../interfaces/menu";
 
 export default class MenuPrincipal implements Menu {
     mostrar(): void {
+        console.clear()
         console.log(`****************************`)
         console.log(`| Por favor, selecione uma opção...`)
         console.log(`----------------------`)
@@ -15,6 +16,7 @@ export default class MenuPrincipal implements Menu {
         console.log(`| Opções para gestão:`)
         console.log(`----------------------`)
         console.log(`| 5 - Listar acomodações`)
+        console.log(`| 6 - Designar acomodação ao titular`)
         console.log(`----------------------`)
         console.log(`****************************`)
         console.log(`| 0 - Sair`)
